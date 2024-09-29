@@ -8,7 +8,7 @@
 // // MongoDB connection URL
 // // const URL = "mongodb://127.0.0.1:27017/get_book";
 // const URL= process.env.MONGODB_URL;
-// // const URL= "";
+// // const URL= "mongodb+srv://ashwanisingh46572:zWYKjX5TSmKidkn8@ashwani.h9jvfdt.mongodb.net/get_your_book?retryWrites=true&w=majority";
 
 
 
@@ -111,7 +111,8 @@ const mongoose = require("mongoose");
 require('dotenv').config(); 
 
 // MongoDB connection URL
-const URL = process.env.MONGODB_URL;
+// const URL = process.env.MONGODB_URL;
+const URL= "mongodb+srv://ashwanisingh46572:zWYKjX5TSmKidkn8@ashwani.h9jvfdt.mongodb.net/get_your_book?retryWrites=true&w=majority";
 
 const app = express();
 const port = process.env.PORT || 3000; // Use the port provided by the environment or default to 3000
