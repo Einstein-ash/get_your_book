@@ -173,7 +173,7 @@ app.get("/books", async (req, res) => {
 
 
 // PATCH endpoint to update the shelf number for a specific book
-app.patch("/books/:index", async (req, res) => {
+app.patch("/books/", async (req, res) => {
     // const { index } = req.params; // Get the index from the URL
     const { shelfNumber } = req.body; // Get the new shelf number from the request body
 
