@@ -171,6 +171,32 @@ app.get("/books", async (req, res) => {
     }
 });
 
+
+// PATCH endpoint to update the shelf number for a specific book
+app.patch("/books/:index", async (req, res) => {
+    // const { index } = req.params; // Get the index from the URL
+    const { shelfNumber } = req.body; // Get the new shelf number from the request body
+
+    try {
+        const book = await Book.findOne(); // Find the single document
+
+        if (!book) {
+            return res.status(404).send("Book not found");
+        }
+
+        // Update the shelf number
+        book.shelfNumber = shelfNumber;
+        await book.save(); // Save the updated book
+
+        res.send(`Shelf number updated to: ${shelfNumber}`);
+    } catch (error) {
+        console.error("Error updating shelf number:", error.message); // Log the error message
+        res.status(500).send("Error updating shelf number: " + error.message);
+    }
+});
+
+
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
