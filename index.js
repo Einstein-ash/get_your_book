@@ -107,6 +107,7 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors"); // Import CORS middleware
 require('dotenv').config(); 
 
 // const URL = process.env.MONGODB_URL;
@@ -114,6 +115,12 @@ const URL= "mongodb+srv://ashwanisingh46572:zWYKjX5TSmKidkn8@ashwani.h9jvfdt.mon
 
 const app = express();
 const port = process.env.PORT || 3000; // Use Vercel's PORT environment variable
+
+
+
+// Use CORS middleware
+app.use(cors()); // Enable CORS for all origins
+app.use(express.json()); // Middleware to parse JSON requests
 
 // Connect to MongoDB
 const connection = async () => {
