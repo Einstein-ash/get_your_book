@@ -8,7 +8,7 @@
 // // MongoDB connection URL
 // // const URL = "mongodb://127.0.0.1:27017/get_book";
 // const URL= process.env.MONGODB_URL;
-// // const URL= "mongodb+srv://ashwanisingh46572:zWYKjX5TSmKidkn8@ashwani.h9jvfdt.mongodb.net/get_your_book?retryWrites=true&w=majority";
+// // const URL= "";
 
 
 
@@ -110,8 +110,8 @@ const mongoose = require("mongoose");
 const cors = require("cors"); // Import CORS middleware
 require('dotenv').config(); 
 
-// const URL = process.env.MONGODB_URL;
-const URL= "mongodb+srv://ashwanisingh46572:zWYKjX5TSmKidkn8@ashwani.h9jvfdt.mongodb.net/get_your_book?retryWrites=true&w=majority";
+const URL = process.env.MONGODB_URL;
+// const URL= "";
 
 const app = express();
 const port = process.env.PORT || 3000; // Use Vercel's PORT environment variable
@@ -174,9 +174,8 @@ app.get("/books", async (req, res) => {
 
 // PATCH endpoint to update the shelf number for a specific book
 app.patch("/books/", async (req, res) => {
-    // const { index } = req.params; // Get the index from the URL
-    const { shelfNumber } = req.body; // Get the new shelf number from the request body
-
+    // const { index } = req.params; 
+    const { shelfNumber } = req.body; 
     try {
         const book = await Book.findOne(); // Find the single document
 
