@@ -109,7 +109,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 require('dotenv').config(); 
 
-const URL = process.env.MONGODB_URL;
+// const URL = process.env.MONGODB_URL;
+const URL= "mongodb+srv://ashwanisingh46572:zWYKjX5TSmKidkn8@ashwani.h9jvfdt.mongodb.net/get_your_book?retryWrites=true&w=majority";
 
 const app = express();
 const port = process.env.PORT || 3000; // Use Vercel's PORT environment variable
@@ -145,6 +146,12 @@ const Book = mongoose.model("Book", bookSchema);
 
 // Middleware
 app.use(express.json());
+
+
+app.get("/", (req, res) => {
+    res.send("Welcome to the Book API! You can access the books at /books.");
+});
+
 
 // API endpoint to fetch all books
 app.get("/books", async (req, res) => {
