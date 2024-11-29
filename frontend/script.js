@@ -1,43 +1,4 @@
-// // Sample data structure: array of book names
-// const books = [
-//     "The Great Gatsby",
-//     "Moby Dick",
-//     "War and Peace",
-//     "The Catcher in the Rye",
-//     "1984",
-//     "Pride and Prejudice",
-//     "The Great Ash"
-// ];
 
-// // Function to search for a book in the array
-// function searchBook() {
-//     const input = document.getElementById('bookInput').value.trim(); // Get user input
-//     const index = books.indexOf(input); // Search for the book in the array
-
-//     // Log the result to the console
-//     if (index !== -1) {
-//         console.log(`Book found at index: ${index}`);
-//     } else {
-//         console.log("Not found");
-//     }
-// }
-
-// // Add event listener to the search button
-// document.getElementById('searchButton').addEventListener('click', searchBook);
-
-
-
-
-
-
-
-
-// ---------- -only console------------
-// -0 below is to update ------ in db ---------
-
-
-
-// Sample data structure: array of book names
 const books = [
     "The Great Gatsby",
     "Moby Mick",
