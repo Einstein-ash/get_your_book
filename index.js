@@ -144,8 +144,8 @@ const bookSchema = new mongoose.Schema({
     },
     shelfNumber: {
         type: Number,
-        required: true,
-        min: 1
+        // required: true,
+        min: 1,
     }
 });
 
@@ -168,6 +168,25 @@ app.get("/books", async (req, res) => {
     } catch (error) {
         console.error("Error fetching books:", error.message); // Log the error message
         res.status(500).send("Error fetching books: " + error.message);
+    }
+});
+
+
+app.post("/books/", async (req, res) => {
+    const { bookName } = req.body;
+
+    if (!bookName) {
+        return res.status(400).send("bookName is required");
+    }
+
+    try {
+        const newBook = new Book({ bookName });
+        await newBook.save();
+
+        res.status(201).send(`Book '${bookName}' added successfully`);
+    } catch (error) {
+        console.error("Error adding book:", error.message);
+        res.status(500).send("Error adding book: " + error.message);
     }
 });
 
