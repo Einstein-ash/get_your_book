@@ -152,6 +152,10 @@ const bookSchema = new mongoose.Schema({
         // required: true,
         trim: true
     }, 
+    userBanking_Name : {
+        type : String, 
+        trim : true,
+    },
     orignalImageURL : {
         type: String,
         trim: true
@@ -191,14 +195,14 @@ app.get("/books", async (req, res) => {
 
 
 app.post("/books/", async (req, res) => {
-    const { bookName , userName, userUPI, orignalImageURL, invertedImageURL} = req.body;
+    const { bookName , userName, userUPI,userBanking_Name ,orignalImageURL, invertedImageURL} = req.body;
 
     if (!bookName) {
         return res.status(400).send("bookName is required");
     }
 
     try {
-        const newBook = new Book({ bookName, userName, userUPI, orignalImageURL, invertedImageURL });
+        const newBook = new Book({ bookName, userName, userBanking_Name, userUPI, orignalImageURL, invertedImageURL });
         await newBook.save();
 
         res.status(201).send(`Book '${bookName}' added successfully`);
