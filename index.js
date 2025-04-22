@@ -195,7 +195,7 @@ app.get("/books", async (req, res) => {
 
 
 app.post("/books/", async (req, res) => {
-    const { bookName , userName, userUPI,userBanking_Name ,orignalImageURL, invertedImageURL} = req.body;
+    const { bookName , userName, userBanking_Name,  userUPI ,orignalImageURL, invertedImageURL} = req.body;
 
     if (!bookName) {
         return res.status(400).send("bookName is required");
